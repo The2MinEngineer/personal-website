@@ -25,7 +25,7 @@ const Navbar = () => {
 	];
 
 	return (
-		<div className="w-full md:px-[120px] px-6 py-5 border-b border-b-[#E1E1E1]/10">
+		<div className="w-full md:px-[120px] px-6 py-5 bg-[#14181B] border-b border-b-[#E1E1E1]/10">
 			<div className="max-w-[1272px] w-full mx-auto flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					<Avatar>
