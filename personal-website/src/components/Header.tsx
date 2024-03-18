@@ -1,6 +1,6 @@
 const Header = () => {
 	return (
-		<div className="mt-12">
+		<div className="mt-12 mb-20">
 			<div className="max-w-[800px]">
 				<h1 className="scroll-m-20 text-white text-4xl font-bold tracking-tight lg:text-5xl">
 					The2MinEngineer's Tech Tales
