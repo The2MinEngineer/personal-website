@@ -30,7 +30,7 @@ const Navbar = () => {
 				<div className="flex items-center gap-2">
 					<Avatar>
 						<AvatarImage src="https://github.com/shadcn.png" />
-						<AvatarFallback>CN</AvatarFallback>
+						<AvatarFallback>IE</AvatarFallback>
 					</Avatar>
 					<div>
 						<p className="font-semibold text-sm text-white mb-[2px]">

@@ -5,7 +5,7 @@ import Blog from "./pages/Blog";
 
 function App() {
 	return (
-		<div className="bg-[#14181B]">
+		<div className="bg-[#14181B] min-h-screen">
 			<div>
 				<Navbar />
 			</div>
