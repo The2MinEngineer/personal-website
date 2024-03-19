@@ -23,8 +23,8 @@ const BlogCard: React.FC<BlogCardProps> = ({
 	starLabel,
 }) => {
 	return (
-		<div className="w-full p-5 bg-[#1D2429] bg-opacity-30 md:p-6 mb-5">
-			<div>
+		<div className="w-full p-5 bg-[#1D2429] bg-opacity-30 md:p-6 mb-5 flex items-center justify-between">
+			<div className="flex-1 mr-10">
 				<h1 className="text-white font-bold mb-3 sm:text-lg md:text-2xl hover:underline cursor-pointer">
 					{title}
 				</h1>
@@ -44,7 +44,15 @@ const BlogCard: React.FC<BlogCardProps> = ({
 					/>
 				</div>
 			</div>
-			<div>{/* TODO: image for blog article */}</div>
+			<div>
+				<div className="h-[140px] w-[140px]">
+					<img
+						src="https://i.pinimg.com/564x/43/0c/59/430c597c8590aeba5e8b93365fc418b0.jpg"
+						alt="img"
+						className="w-full h-full object-cover rounded-[20px]"
+					/>
+				</div>
+			</div>
 		</div>
 	);
 };
