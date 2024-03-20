@@ -1,65 +1,70 @@
+import { useEffect, useState } from "react";
+import client from "@/client";
+
 import { GoHeart } from "react-icons/go";
 import { AiOutlineMessage } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import BlogCard from "./BlogCard";
+import BlogCardSkeleton from "./BlogCardSkeleton";
+
+interface Post {
+	title: string;
+	description: string;
+	category: string;
+	mainImage: {
+		asset: {
+			url: string;
+		};
+	};
+}
 
 const BlogList = () => {
-	const blogCardDetail = [
-		{
-			key: 1,
-			title: "Navigating the Cloud: A Beginner's Guide",
-			desc: "Demystify cloud computing concepts, platforms, and their impact on modern software development.",
-			like: <GoHeart className="text-sm text-[#e8e8e8]" />,
-			likeCount: "10k",
-			message: <AiOutlineMessage className="text-sm text-[#e8e8e8]" />,
-			messageCount: "1.5k",
-			star: <FaStar className="text-sm text-[#e8e8e8]" />,
-			starLabel: "Project",
-		},
-		{
-			key: 2,
-			title: "Debugging Dairies: Tales from the Code Trenches",
-			desc: "Share personal experiences, challenges, and triumphs in debugging complex code scenerios.",
-			like: <GoHeart className="text-sm text-[#e8e8e8]" />,
-			likeCount: "10k",
-			message: <AiOutlineMessage className="text-sm text-[#e8e8e8]" />,
-			messageCount: "1.5k",
-		},
-		{
-			key: 3,
-			title: "Tech Trends 2024: What’s on the Horizon?",
-			desc: "Explore emerging technologies and trends that are set to make waves in the tech industry.",
-			like: <GoHeart className="text-sm text-[#e8e8e8]" />,
-			likeCount: "10k",
-			message: <AiOutlineMessage className="text-sm text-[#e8e8e8]" />,
-			messageCount: "1.5k",
-		},
-		{
-			key: 4,
-			title: "Open Source Love: Contributions and Community",
-			desc: "Discuss the importance of open source contributions and share your journey of giving back to the community",
-			like: <GoHeart className="text-sm text-[#e8e8e8]" />,
-			likeCount: "10k",
-			message: <AiOutlineMessage className="text-sm text-[#e8e8e8]" />,
-			messageCount: "1.5k",
-		},
-	];
+	const [allPosts, setAllPosts] = useState<Post[]>([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await client.fetch(
+					`*[_type == "post"]{title, description, slug, mainImage{asset->{_id, url}}}`
+				);
+				setAllPosts(data);
+			} catch (error) {
+				console.error("Error fetching posts:", error);
+			}
+		};
+
+		fetchData();
+	}, []);
+	console.log(allPosts);
+
+	if (allPosts.length === 0) {
+		return (
+			<div className="flex flex-col gap-3">
+				<BlogCardSkeleton />
+				<BlogCardSkeleton />
+				<BlogCardSkeleton />
+			</div>
+		);
+	}
+
 	return (
 		<div>
-			{blogCardDetail.map((item) => (
-				<div key={item.key}>
-					<BlogCard
-						title={item.title}
-						desc={item.desc}
-						like={item.like}
-						likeCount={item.likeCount}
-						message={item.message}
-						messageCount={item.messageCount}
-						star={item.star}
-						starLabel={item.starLabel}
-					/>
-				</div>
-			))}
+			{allPosts &&
+				allPosts.map((post, index) => (
+					<div key={index}>
+						<BlogCard
+							title={post.title}
+							desc={post.description}
+							like={<GoHeart className="text-sm text-[#e8e8e8]" />}
+							// likeCount={item.likeCount}
+							message={<AiOutlineMessage className="text-sm text-[#e8e8e8]" />}
+							// messageCount={item.messageCount}
+							star={<FaStar className="text-sm text-[#e8e8e8]" />}
+							starLabel={post.category}
+							image={post.mainImage.asset.url}
+						/>
+					</div>
+				))}
 		</div>
 	);
 };

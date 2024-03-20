@@ -5,11 +5,12 @@ interface BlogCardProps {
 	title: string;
 	desc: string;
 	like: ReactElement;
-	likeCount: string;
+	likeCount?: string;
 	message: ReactElement;
-	messageCount: string;
+	messageCount?: string;
 	star?: ReactElement;
 	starLabel?: string;
+	image: any;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
@@ -21,6 +22,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
 	messageCount,
 	star,
 	starLabel,
+	image,
 }) => {
 	return (
 		<div className="w-full p-5 bg-[#1D2429] bg-opacity-30 md:p-6 mb-5 flex items-center justify-between">
@@ -47,7 +49,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
 			<div>
 				<div className="h-[140px] w-[140px]">
 					<img
-						src="https://i.pinimg.com/564x/43/0c/59/430c597c8590aeba5e8b93365fc418b0.jpg"
+						src={image}
 						alt="img"
 						className="w-full h-full object-cover rounded-[20px]"
 					/>
