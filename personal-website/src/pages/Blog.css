@@ -1,0 +1,40 @@
+.post {
+	width: 100%;
+	max-width: 950px;
+}
+
+.post p {
+	color: #e8e8e8;
+	font-size: 18px;
+	font-weight: light;
+	line-height: 165.5%;
+}
+
+.post h2 {
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.post h3 {
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.post h4 {
+	color: white;
+	font-size: 18px;
+	font-weight: semibold;
+}
+
+.post h4 {
+	color: white;
+	font-weight: semibold;
+}
+
+.post img {
+	height: 450px;
+	width: 950px;
+	object-fit: cover;
+}

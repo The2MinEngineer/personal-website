@@ -17,7 +17,7 @@ function App() {
 					element={<Home />}
 				/>
 				<Route
-					path="blog"
+					path="/:slug"
 					element={<Blog />}
 				/>
 			</Routes>

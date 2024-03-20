@@ -8,6 +8,9 @@ import BlogCard from "./BlogCard";
 import BlogCardSkeleton from "./BlogCardSkeleton";
 
 interface Post {
+	slug: {
+		current: string;
+	};
 	title: string;
 	description: string;
 	category: string;
@@ -53,6 +56,7 @@ const BlogList = () => {
 				allPosts.map((post, index) => (
 					<div key={index}>
 						<BlogCard
+							link={"/" + post.slug.current}
 							title={post.title}
 							desc={post.description}
 							like={<GoHeart className="text-sm text-[#e8e8e8]" />}
