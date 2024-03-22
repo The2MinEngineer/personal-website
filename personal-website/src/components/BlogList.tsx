@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import client from "@/client";
 
-import { GoHeart } from "react-icons/go";
-import { AiOutlineMessage } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import BlogCard from "./BlogCard";
-import BlogCardSkeleton from "./BlogCardSkeleton";
 
 interface Post {
 	slug: {
@@ -28,7 +25,7 @@ const BlogList = () => {
 		const fetchData = async () => {
 			try {
 				const data = await client.fetch(
-					`*[_type == "post"]{title, description, slug, mainImage{asset->{_id, url}}}`
+					`*[_type == "post"]{title, description, category, slug, mainImage{asset->{_id, url}}}`
 				);
 				setAllPosts(data);
 			} catch (error) {
@@ -41,13 +38,7 @@ const BlogList = () => {
 	console.log(allPosts);
 
 	if (allPosts.length === 0) {
-		return (
-			<div className="flex flex-col gap-3">
-				<BlogCardSkeleton />
-				<BlogCardSkeleton />
-				<BlogCardSkeleton />
-			</div>
-		);
+		return <p className="text-white text-xl mt-4 italic">Please wait...</p>;
 	}
 
 	return (
@@ -59,10 +50,6 @@ const BlogList = () => {
 							link={"/" + post.slug.current}
 							title={post.title}
 							desc={post.description}
-							like={<GoHeart className="text-sm text-[#e8e8e8]" />}
-							// likeCount={item.likeCount}
-							message={<AiOutlineMessage className="text-sm text-[#e8e8e8]" />}
-							// messageCount={item.messageCount}
 							star={<FaStar className="text-sm text-[#e8e8e8]" />}
 							starLabel={post.category}
 							image={post.mainImage.asset.url}
