@@ -9,7 +9,7 @@ interface PostData {
 	title: string;
 	description: string;
 	category: string;
-	body: any; // Add a specific type for body
+	body: any;
 	mainImage: {
 		asset: {
 			url: string;
