@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Blog from "./pages/Blog";
-import Newsletter from "./components/Resume";
+import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
 				/>
 			</Routes>
 			<div>
-				<Newsletter />
+				<Resume />
 				<Footer />
 			</div>
 		</div>

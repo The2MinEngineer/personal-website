@@ -1,14 +1,20 @@
 import { ReactElement } from "react";
 import BlogAnalyticData from "./BlogAnalyticData";
 import { Link } from "react-router-dom";
+import Project from "./Project";
 
 interface BlogCardProps {
 	link: string;
 	title: string;
 	desc: string;
 	star?: ReactElement;
+	github?: ReactElement;
+	website?: ReactElement;
 	starLabel?: string;
+	githubLabel?: string;
+	websiteLabel?: string;
 	image: any;
+	category?: string;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
@@ -16,8 +22,13 @@ const BlogCard: React.FC<BlogCardProps> = ({
 	title,
 	desc,
 	star,
+	github,
+	website,
 	starLabel,
+	githubLabel,
+	websiteLabel,
 	image,
+	category,
 }) => {
 	return (
 		<>
@@ -30,12 +41,23 @@ const BlogCard: React.FC<BlogCardProps> = ({
 						</h1>
 					</Link>
 					<p className="text-[#e8e8e8] text-sm sm:text-base mb-3">{desc}</p>
-					<div className="flex items-center gap-6">
-						<BlogAnalyticData
-							icon={star}
-							iconCount={starLabel}
-						/>
-					</div>
+
+					{category && (
+						<div className="flex items-center gap-6">
+							<Project
+								icon={star}
+								iconCount={starLabel}
+							/>
+							<BlogAnalyticData
+								icon={github}
+								iconCount={githubLabel}
+							/>
+							<BlogAnalyticData
+								icon={website}
+								iconCount={websiteLabel}
+							/>
+						</div>
+					)}
 				</div>
 				<div>
 					<div className="h-[140px] w-[140px]">
@@ -66,12 +88,22 @@ const BlogCard: React.FC<BlogCardProps> = ({
 						</h1>
 					</Link>
 					<p className="text-[#e8e8e8] text-sm sm:text-base mb-3">{desc}</p>
-					<div className="flex items-center gap-6">
-						<BlogAnalyticData
-							icon={star}
-							iconCount={starLabel}
-						/>
-					</div>
+					{category && (
+						<div className="flex items-center gap-6">
+							<Project
+								icon={star}
+								iconCount={starLabel}
+							/>
+							<BlogAnalyticData
+								icon={github}
+								iconCount={githubLabel}
+							/>
+							<BlogAnalyticData
+								icon={website}
+								iconCount={websiteLabel}
+							/>
+						</div>
+					)}
 				</div>
 			</div>
 		</>

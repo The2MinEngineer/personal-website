@@ -39,12 +39,6 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    }),
-    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
@@ -53,6 +47,21 @@ export default defineType({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+    }),
+    defineField({
+      name: 'github',
+      title: 'Github',
+      type: 'string',
+    }),
+    defineField({
+      name: 'website',
+      title: 'Website',
+      type: 'string',
     }),
   ],
 

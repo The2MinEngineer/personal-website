@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import profilePic from "@/assets/profilePic.jpg";
 
 const Navbar = () => {
 	const socialLinks = [
@@ -8,19 +9,19 @@ const Navbar = () => {
 			icon: (
 				<FaGithub className="text-white text-2xl hover:text-opacity-70 transition duration-200" />
 			),
-			url: "https://github.com/yourgithub",
+			url: "https://github.com/the2MinEngineer",
 		},
 		{
 			icon: (
 				<FaLinkedin className="text-white text-2xl hover:text-opacity-70 transition duration-200" />
 			),
-			url: "https://linkedin.com/in/yourlinkedin",
+			url: "https://www.linkedin.com/in/ifeanyi-emmanuel/",
 		},
 		{
 			icon: (
 				<BiLogoGmail className="text-white text-2xl hover:text-opacity-70 transition duration-200" />
 			),
-			url: "mailto:youremail@example.com",
+			url: "mailto:ifeanyiemmanueljoseph@gmail.com",
 		},
 	];
 
@@ -29,7 +30,7 @@ const Navbar = () => {
 			<div className="max-w-[1272px] w-full mx-auto flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					<Avatar>
-						<AvatarImage src="https://github.com/shadcn.png" />
+						<AvatarImage src={profilePic} />
 						<AvatarFallback>IE</AvatarFallback>
 					</Avatar>
 					<div>
@@ -44,6 +45,8 @@ const Navbar = () => {
 						<a
 							href={link.url}
 							key={index}
+							target="_blank"
+							rel="noopener noreferrer"
 						>
 							{link.icon}
 						</a>

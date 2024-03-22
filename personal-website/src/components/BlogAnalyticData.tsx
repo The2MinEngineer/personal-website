@@ -12,7 +12,7 @@ const BlogAnalyticData: React.FC<BlogAnalyticDataProps> = ({
 	return (
 		<div className="flex items-center gap-2 text-[#e8e8e8]">
 			<div className="cursor-pointer">{icon}</div>
-			<span className="text-[#e8e8e8] text-sm">{iconCount}</span>
+			<a href={iconCount} target="_blank" className="text-[#e8e8e8] text-sm hover:underline cursor-pointer">{iconCount}</a>
 		</div>
 	);
 };
