@@ -10,11 +10,12 @@ const Header = () => {
 			</div>
 			<div className="mt-5 max-w-[735px]">
 				<p className="leading-7 text-[#E8E8E8] text-lg">
-					Embark on a journey through the realms of technology with me, Ifeanyi
-					Emmanuel, also known as The2MinEngineer. Here, I open the doors to my
-					world, sharing not only my blog where I document my experiences and
-					insights, but also my portfolio where I showcase my projects and
-					achievements.
+					Embark on a journey through the realms of technology!! Here, I open
+					the doors to my world. Together, we'll explore the highs and lows of
+					tech; going through real life experiences/approaches to solving
+					probblems and my personal insights. You'll have first hand access to
+					my projects and achievements too! I'm Ifeanyi Emmanueel Joseph,
+					the2MinEngineer.
 				</p>
 			</div>
 			{/* <div>
