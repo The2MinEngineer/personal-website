@@ -13,8 +13,8 @@ const Header = () => {
 					Embark on a journey through the realms of technology!! Here, I open
 					the doors to my world. Together, we'll explore the highs and lows of
 					tech; going through real life experiences/approaches to solving
-					probblems and my personal insights. You'll have first hand access to
-					my projects and achievements too! I'm Ifeanyi Emmanueel Joseph,
+					problems and my personal insights. You'll have first hand access to my
+					projects and achievements too! I'm Ifeanyi Emmanueel Joseph,
 					the2MinEngineer.
 				</p>
 			</div>
